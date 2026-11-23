@@ -1,74 +1,49 @@
 [
-  {
-    "type": "custom-link", "label": "入门", "collapsible": false,
-    "items": [
-      { "label": "概览", "link": "/" },
-      { "label": "快速上手", "link": "/quickstart" },
-      { "label": "Pi 的工作原理", "link": "/how-pi-works" }
-    ]
-  },
-  {
-    "type": "custom-link", "label": "指南", "collapsible": false,
-    "items": [
-      {
-        "label": "使用 Pi", "collapsible": false,
-        "items": [
-          { "label": "在终端中使用 Pi", "link": "/usage" },
-          { "label": "选择模型", "link": "/models" },
-          { "label": "管理会话与上下文", "link": "/sessions" },
-          { "label": "安全运行 Pi", "link": "/security" },
-          { "label": "隔离 Pi", "link": "/containerization" },
-          { "label": "运行本地模型", "link": "/llama-cpp" },
-          { "label": "在 NVIDIA RTX 上运行本地模型", "link": "/nvidia-rtx-llama-cpp" },
-          { "label": "配置终端", "link": "/terminal-setup" },
-          { "label": "配置 shell 命令", "link": "/shell-aliases" },
-          { "label": "在 tmux 中运行 Pi", "link": "/tmux" },
-          { "label": "在 Windows 上运行 Pi", "link": "/windows" },
-          { "label": "在 Android 上运行 Pi", "link": "/termux" }
-        ]
-      },
-      {
-        "label": "定制 Pi", "collapsible": false,
-        "items": [
-          { "label": "配置 Pi", "link": "/configuration" },
-          { "label": "创建提示词模板", "link": "/prompt-templates" },
-          { "label": "添加技能", "link": "/skills" },
-          { "label": "创建主题", "link": "/themes" },
-          { "label": "使用 Pi 包", "link": "/packages" },
-          { "label": "连接 MCP 服务器", "link": "/mcp" }
-        ]
-      },
-      {
-        "label": "基于 Pi 开发", "collapsible": false,
-        "items": [
-          { "label": "编写扩展", "link": "/extensions" },
-          { "label": "添加自定义模型提供方", "link": "/custom-provider" },
-          { "label": "使用虚拟模型路由请求", "link": "/virtual-models" },
-          { "label": "编写终端界面组件", "link": "/tui" },
-          { "label": "集成命令行", "link": "/cli-integration" },
-          { "label": "使用 SDK", "link": "/sdk" }
-        ]
-      }
-    ]
-  },
-  {
-    "type": "custom-link", "label": "参考", "collapsible": false,
-    "items": [
-      { "label": "CLI", "link": "/cli" },
-      { "label": "Codemode", "link": "/codemode" },
-      { "label": "斜杠命令", "link": "/slash-commands" },
-      { "label": "设置", "link": "/settings" },
-      { "label": "模型配置", "link": "/models-configuration" },
-      { "label": "环境变量", "link": "/environment-variables" },
-      { "label": "快捷键", "link": "/keybindings" },
-      { "label": "模型提供方", "link": "/providers" },
-      { "label": "会话文件格式", "link": "/session-format" },
-      { "label": "上下文压缩与分支摘要", "link": "/compaction" },
-      { "label": "JSON 事件流", "link": "/json" },
-      { "label": "RPC 协议", "link": "/rpc" },
-      { "label": "RPC 命令", "link": "/rpc-commands" },
-      { "label": "RPC 扩展界面", "link": "/rpc-extension-ui" },
-      { "label": "消息类型", "link": "/message-types" }
-    ]
-  }
+  { "type": "section-header", "label": "入门" },
+  { "type": "file", "name": "index", "label": "概览" },
+  "quickstart",
+  "how-pi-works",
+  { "type": "section-header", "label": "使用 Pi" },
+  "usage",
+  "models",
+  "sessions",
+  "security",
+  "containerization",
+  "llama-cpp",
+  "nvidia-rtx-llama-cpp",
+  "terminal-setup",
+  "shell-aliases",
+  "tmux",
+  "windows",
+  "termux",
+  { "type": "section-header", "label": "定制 Pi" },
+  "configuration",
+  "prompt-templates",
+  "skills",
+  "themes",
+  "packages",
+  "mcp",
+  { "type": "section-header", "label": "基于 Pi 开发" },
+  "extensions",
+  "custom-provider",
+  "virtual-models",
+  "tui",
+  "cli-integration",
+  "sdk",
+  { "type": "section-header", "label": "参考" },
+  "cli",
+  "codemode",
+  "slash-commands",
+  "settings",
+  "models-configuration",
+  "environment-variables",
+  "keybindings",
+  "providers",
+  "session-format",
+  "compaction",
+  "json",
+  "rpc",
+  "rpc-commands",
+  "rpc-extension-ui",
+  "message-types"
 ]
