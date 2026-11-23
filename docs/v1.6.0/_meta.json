@@ -1,6 +1,6 @@
 [
   {
-    "type": "custom-link", "label": "入门", "collapsible": true,
+    "type": "custom-link", "label": "入门", "collapsible": false,
     "items": [
       { "label": "概览", "link": "/" },
       { "label": "快速上手", "link": "/quickstart" },
@@ -8,10 +8,10 @@
     ]
   },
   {
-    "type": "custom-link", "label": "指南", "collapsible": true,
+    "type": "custom-link", "label": "指南", "collapsible": false,
     "items": [
       {
-        "label": "使用 Pi", "collapsible": true, "collapsed": true,
+        "label": "使用 Pi", "collapsible": false,
         "items": [
           { "label": "在终端中使用 Pi", "link": "/usage" },
           { "label": "选择模型", "link": "/models" },
@@ -28,7 +28,7 @@
         ]
       },
       {
-        "label": "定制 Pi", "collapsible": true, "collapsed": true,
+        "label": "定制 Pi", "collapsible": false,
         "items": [
           { "label": "配置 Pi", "link": "/configuration" },
           { "label": "创建提示词模板", "link": "/prompt-templates" },
@@ -39,7 +39,7 @@
         ]
       },
       {
-        "label": "基于 Pi 开发", "collapsible": true, "collapsed": true,
+        "label": "基于 Pi 开发", "collapsible": false,
         "items": [
           { "label": "编写扩展", "link": "/extensions" },
           { "label": "添加自定义模型提供方", "link": "/custom-provider" },
@@ -52,7 +52,7 @@
     ]
   },
   {
-    "type": "custom-link", "label": "参考", "collapsible": true, "collapsed": true,
+    "type": "custom-link", "label": "参考", "collapsible": false,
     "items": [
       { "label": "CLI", "link": "/cli" },
       { "label": "Codemode", "link": "/codemode" },

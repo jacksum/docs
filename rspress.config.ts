@@ -2,13 +2,17 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { posix, resolve } from 'node:path';
 import { defineConfig } from '@rspress/core';
 
+const title = 'Pi 文档';
 const versions = ['v1.6.0'];
 const markdownExports = new Map<string, string[]>();
 
 export default defineConfig({
   root: 'docs',
-  title: 'Pi 文档',
+  title,
   description: 'Pi 的文档、指南与参考资料。',
+  logo: '/pi-logo.svg',
+  logoText: title,
+  icon: '/pi-icon.svg',
   plugins: [
     {
       name: 'pi:license-markdown-exports',

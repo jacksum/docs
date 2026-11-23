@@ -1,24 +1,32 @@
-import { useSite, useVersion } from '@rspress/core/runtime';
-import { Layout as DefaultLayout } from '@rspress/core/theme-original';
-import './version.css';
+import { ThemeContext } from '@rspress/core/runtime';
+import { IconMoon, IconSun, SvgWrapper } from '@rspress/core/theme-original';
+import { useContext } from 'react';
+import './appearance.css';
 
 export * from '@rspress/core/theme-original';
 
-export function Layout() {
-  const { site } = useSite();
-  const version = useVersion();
-  const onlyVersion = site.multiVersion.versions.length === 1;
+export function SwitchAppearance({ onClick }: { onClick?: () => void }) {
+  const { theme, setTheme } = useContext(ThemeContext);
+  const dark = theme === 'dark';
 
   return (
-    <DefaultLayout
-      beforeNavMenu={onlyVersion && (
-        <details className="pi-version-menu">
-          <summary aria-label={`文档版本：${version}`}>{version}</summary>
-          <div className="pi-version-menu__options">
-            <span aria-current="true">{version}</span>
-          </div>
-        </details>
-      )}
-    />
+    <button
+      type="button"
+      className="pi-theme-switch"
+      aria-label="深色主题"
+      aria-pressed={dark}
+      title="切换亮色或暗色主题"
+      onClick={() => {
+        setTheme?.(dark ? 'light' : 'dark');
+        onClick?.();
+      }}
+    >
+      <span aria-hidden="true" className="pi-theme-switch__sun">
+        <SvgWrapper icon={IconSun} fill="currentColor" />
+      </span>
+      <span aria-hidden="true" className="pi-theme-switch__moon">
+        <SvgWrapper icon={IconMoon} fill="currentColor" />
+      </span>
+    </button>
   );
 }

@@ -1,0 +1,29 @@
+.pi-theme-switch {
+  display: inline-grid;
+  inline-size: 24px;
+  block-size: 24px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--rp-c-text-2);
+  cursor: pointer;
+}
+
+.pi-theme-switch:hover {
+  color: var(--rp-c-text-1);
+}
+
+.pi-theme-switch:focus-visible {
+  outline: 2px solid var(--rp-c-brand);
+  outline-offset: 2px;
+}
+
+.pi-theme-switch__moon,
+.rp-dark .pi-theme-switch__sun {
+  display: none;
+}
+
+.rp-dark .pi-theme-switch__moon {
+  display: inline-flex;
+}
