@@ -4,7 +4,7 @@ import { defineConfig } from '@rspress/core';
 import collection from '../../collection.json';
 import manifest from './source-manifest.json';
 
-const title = collection.projects.find(({ id }) => id === 'omp')!.label;
+const { label: title, icon } = collection.projects.find(({ id }) => id === 'omp')!;
 const exportedPages = new Set<string>();
 
 export default defineConfig({
@@ -12,7 +12,9 @@ export default defineConfig({
   title,
   description: 'Oh My Pi 仓库版使用指南与参考资料的简体中文选译。',
   lang: 'zh',
+  logo: `/${icon}`,
   logoText: title,
+  icon: `/${icon}`,
   base: `${collection.base}omp/`,
   multiVersion: { default: manifest.version, versions: [manifest.version] },
   route: { cleanUrls: false },

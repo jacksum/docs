@@ -1,5 +1,6 @@
 import { Layout as DefaultLayout, type LayoutProps } from '@rspress/core/theme-original';
 import { DocumentSwitcher } from '../../../shared/DocumentSwitcher';
+import './navigation.css';
 
 export * from '@rspress/core/theme-original';
 
