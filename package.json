@@ -1,17 +1,17 @@
 {
-  "name": "pi-docs",
+  "name": "docs-collection",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": {
-    "node": ">=24"
-  },
+  "engines": { "node": ">=24" },
+  "workspaces": ["sites/*"],
   "scripts": {
-    "dev": "rspress dev --host 127.0.0.1",
-    "build": "rspress build",
+    "build": "node scripts/build.mjs",
+    "verify": "node scripts/verify.mjs",
     "preview": "rspress preview --host 127.0.0.1"
   },
   "devDependencies": {
-    "@rspress/core": "2.1.4"
+    "@rspress/core": "2.1.4",
+    "parse5": "7.3.0"
   }
 }

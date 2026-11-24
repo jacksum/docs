@@ -1,0 +1,21 @@
+{
+  "name": "中文文档",
+  "base": "/docs/",
+  "defaultProject": "pi",
+  "projects": [
+    {
+      "id": "pi",
+      "label": "Pi 中文文档",
+      "description": "可扩展的终端编码智能体",
+      "icon": "pi-icon.svg",
+      "license": "MIT"
+    },
+    {
+      "id": "omp",
+      "label": "Oh My Pi 中文文档",
+      "description": "内置子代理和开发工具",
+      "glyph": ">_",
+      "license": "MIT"
+    }
+  ]
+}

@@ -1,5 +1,8 @@
 /node_modules/
+/sites/*/node_modules/
 /doc_build/
-*.log
+/.collection-build-*/
+/sites/*/doc_build/
 .env
 .env.*
+*.log

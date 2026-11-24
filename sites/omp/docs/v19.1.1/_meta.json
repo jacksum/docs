@@ -1,0 +1,176 @@
+[
+  {
+    "type": "file",
+    "name": "index",
+    "label": "概览"
+  },
+  {
+    "type": "section-header",
+    "label": "入门"
+  },
+  {
+    "type": "file",
+    "name": "install",
+    "label": "安装与命令补全"
+  },
+  {
+    "type": "file",
+    "name": "keybindings",
+    "label": "快捷键"
+  },
+  {
+    "type": "file",
+    "name": "approval-mode",
+    "label": "工具审批模式"
+  },
+  {
+    "type": "section-header",
+    "label": "会话与协作"
+  },
+  {
+    "type": "file",
+    "name": "session-operations-export-share-fork-resume",
+    "label": "会话操作"
+  },
+  {
+    "type": "file",
+    "name": "session-switching-and-recent-listing",
+    "label": "切换与列出会话"
+  },
+  {
+    "type": "file",
+    "name": "tree",
+    "label": "会话树命令"
+  },
+  {
+    "type": "file",
+    "name": "agent-hub",
+    "label": "智能体中心"
+  },
+  {
+    "type": "file",
+    "name": "vibe-mode",
+    "label": "Vibe 模式"
+  },
+  {
+    "type": "file",
+    "name": "collab",
+    "label": "实时会话共享"
+  },
+  {
+    "type": "file",
+    "name": "memory",
+    "label": "自主记忆"
+  },
+  {
+    "type": "section-header",
+    "label": "配置与模型"
+  },
+  {
+    "type": "file",
+    "name": "settings",
+    "label": "设置"
+  },
+  {
+    "type": "file",
+    "name": "providers",
+    "label": "模型提供方"
+  },
+  {
+    "type": "file",
+    "name": "models",
+    "label": "模型和模型提供方配置"
+  },
+  {
+    "type": "file",
+    "name": "prewalk",
+    "label": "Prewalk"
+  },
+  {
+    "type": "section-header",
+    "label": "定制"
+  },
+  {
+    "type": "file",
+    "name": "context-files",
+    "label": "上下文文件"
+  },
+  {
+    "type": "file",
+    "name": "skills",
+    "label": "技能"
+  },
+  {
+    "type": "file",
+    "name": "magic-keywords",
+    "label": "触发关键词"
+  },
+  {
+    "type": "file",
+    "name": "extensions",
+    "label": "扩展"
+  },
+  {
+    "type": "file",
+    "name": "hooks",
+    "label": "钩子"
+  },
+  {
+    "type": "file",
+    "name": "custom-tools",
+    "label": "自定义工具"
+  },
+  {
+    "type": "file",
+    "name": "mcp-config",
+    "label": "MCP 配置"
+  },
+  {
+    "type": "file",
+    "name": "theme",
+    "label": "主题参考"
+  },
+  {
+    "type": "file",
+    "name": "marketplace",
+    "label": "插件市场"
+  },
+  {
+    "type": "file",
+    "name": "lsp-config",
+    "label": "LSP 配置"
+  },
+  {
+    "type": "section-header",
+    "label": "编程接口"
+  },
+  {
+    "type": "file",
+    "name": "sdk",
+    "label": "SDK"
+  },
+  {
+    "type": "file",
+    "name": "rpc",
+    "label": "RPC 协议参考"
+  },
+  {
+    "type": "section-header",
+    "label": "参考"
+  },
+  {
+    "type": "file",
+    "name": "cli-reference",
+    "label": "命令行参考"
+  },
+  {
+    "type": "file",
+    "name": "environment-variables",
+    "label": "环境变量参考"
+  },
+  {
+    "type": "file",
+    "name": "license",
+    "label": "上游 MIT 许可证"
+  }
+]

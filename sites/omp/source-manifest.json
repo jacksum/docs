@@ -1,0 +1,42 @@
+{
+  "upstream": "https://github.com/can1357/oh-my-pi",
+  "version": "v19.1.1",
+  "commit": "31ffee513f27a01bba7d4dfbe12bae239cdc646a",
+  "license": "MIT",
+  "pages": [
+    { "group": "入门", "title": "安装与命令补全", "source": "README.md", "lines": [39, 115], "target": "install.md" },
+    { "group": "入门", "title": "快捷键", "source": "docs/keybindings.md", "target": "keybindings.md" },
+    { "group": "入门", "title": "工具审批模式", "source": "docs/approval-mode.md", "target": "approval-mode.md" },
+    { "group": "会话与协作", "title": "会话操作", "source": "docs/session-operations-export-share-fork-resume.md", "target": "session-operations-export-share-fork-resume.md" },
+    { "group": "会话与协作", "title": "切换与列出会话", "source": "docs/session-switching-and-recent-listing.md", "target": "session-switching-and-recent-listing.md" },
+    { "group": "会话与协作", "title": "会话树命令", "source": "docs/tree.md", "target": "tree.md" },
+    { "group": "会话与协作", "title": "智能体中心", "source": "docs/agent-hub.md", "target": "agent-hub.md" },
+    { "group": "会话与协作", "title": "Vibe 模式", "source": "docs/vibe-mode.md", "target": "vibe-mode.md" },
+    { "group": "会话与协作", "title": "实时会话共享", "source": "docs/collab.md", "target": "collab.md" },
+    { "group": "会话与协作", "title": "自主记忆", "source": "docs/memory.md", "target": "memory.md" },
+    { "group": "配置与模型", "title": "设置", "source": "docs/settings.md", "target": "settings.md" },
+    { "group": "配置与模型", "title": "模型提供方", "source": "docs/providers.md", "target": "providers.md" },
+    { "group": "配置与模型", "title": "模型和模型提供方配置", "source": "docs/models.md", "target": "models.md" },
+    { "group": "配置与模型", "title": "Prewalk", "source": "docs/prewalk.md", "target": "prewalk.md" },
+    { "group": "定制", "title": "上下文文件", "source": "docs/context-files.md", "target": "context-files.md" },
+    { "group": "定制", "title": "技能", "source": "docs/skills.md", "target": "skills.md" },
+    { "group": "定制", "title": "触发关键词", "source": "docs/magic-keywords.md", "target": "magic-keywords.md" },
+    { "group": "定制", "title": "扩展", "source": "docs/extensions.md", "target": "extensions.md" },
+    { "group": "定制", "title": "钩子", "source": "docs/hooks.md", "target": "hooks.md" },
+    { "group": "定制", "title": "自定义工具", "source": "docs/custom-tools.md", "target": "custom-tools.md" },
+    { "group": "定制", "title": "MCP 配置", "source": "docs/mcp-config.md", "target": "mcp-config.md" },
+    { "group": "定制", "title": "主题参考", "source": "docs/theme.md", "target": "theme.md" },
+    { "group": "定制", "title": "插件市场", "source": "docs/marketplace.md", "target": "marketplace.md" },
+    { "group": "定制", "title": "LSP 配置", "source": "docs/lsp-config.md", "target": "lsp-config.md" },
+    { "group": "编程接口", "title": "SDK", "source": "docs/sdk.md", "target": "sdk.md" },
+    { "group": "编程接口", "title": "RPC 协议参考", "source": "docs/rpc.md", "target": "rpc.md" },
+    { "group": "参考", "title": "命令行参考", "source": "docs/cli-reference.md", "target": "cli-reference.md" },
+    { "group": "参考", "title": "环境变量参考", "source": "docs/environment-variables.md", "target": "environment-variables.md" }
+  ],
+  "exclusions": [
+    "官网滚动版正文、站点标识和演示媒体，不作为 v19.1.1 的原文或素材。",
+    "仓库内部架构、运行时实现、开发与发布操作、第三方内容和许可不明的素材。",
+    "未列入本清单的仓库文档，例如独立内置工具说明、模型协议细节与深度编写指南；引用这些文档时链接到固定提交的原文。",
+    "仓库 README 只收录完整 Install 小节，其他宣传、开发和演示章节不收录。"
+  ]
+}

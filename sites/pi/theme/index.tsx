@@ -11,6 +11,7 @@ import {
   type SearchButtonProps,
 } from '@rspress/core/theme-original';
 import { useContext, useEffect, useState, type ComponentProps } from 'react';
+import { DocumentSwitcher } from '../../../shared/DocumentSwitcher';
 import './appearance.css';
 
 export * from '@rspress/core/theme-original';
@@ -77,6 +78,12 @@ export function NavHamburger(props: ComponentProps<typeof DefaultNavHamburger>) 
   return hasMenu ? <DefaultNavHamburger {...props} /> : null;
 }
 
-export function Layout({ afterNavMenu, ...props }: LayoutProps) {
-  return <DefaultLayout {...props} afterNavMenu={<>{afterNavMenu}<AppearanceButton /></>} />;
+export function Layout({ beforeNavTitle, afterNavMenu, ...props }: LayoutProps) {
+  return (
+    <DefaultLayout
+      {...props}
+      beforeNavTitle={<>{beforeNavTitle}<DocumentSwitcher current="pi" /></>}
+      afterNavMenu={<>{afterNavMenu}<AppearanceButton /></>}
+    />
+  );
 }
