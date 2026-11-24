@@ -2,9 +2,11 @@
 
 Pi 在终端中运行，可以处理你电脑上的文件。使用前，你需要通过 Pi 支持的模型服务接入模型。你可以使用订阅、API 密钥或本地模型。
 
-如果要在 Windows 上原生运行 Pi，请参阅 [Windows 安装指南][windows]。在 Android 上，请参阅 [Termux 安装指南][termux]。
+如果要在 Windows 上原生运行 Pi，请参阅 [Windows 环境设置][windows]。在 Android 上，请参阅 [Termux 安装指南][termux]。
 
 ## 1. 安装 Pi \{#1-install-pi}
+
+下面的默认安装命令不会把 Pi 固定在本文对应的 v1.6.0。
 
 在 macOS 或 Linux 上，运行安装脚本：
 
@@ -28,6 +30,12 @@ npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 
 通过 npm 正常安装 Pi 时，不需要运行依赖包的生命周期脚本。
 
+如需安装本文对应的版本，请在 npm 包名后指定 `@1.6.0`：
+
+```bash
+npm install -g --ignore-scripts @earendil-works/pi-coding-agent@1.6.0
+```
+
 如果你在 macOS 或 Linux 上使用 Nix，可以从 Pi 的 flake 安装最新发行版。Nix 会从源码构建 Pi：
 
 ```bash
@@ -36,11 +44,13 @@ nix profile add github:earendil-works/pi/stable
 
 较旧的 Nix 版本使用 `nix profile install`。通过 Nix 安装后，用 `nix profile upgrade pi` 更新，`pi update` 无法更新这种安装。如需锁定发行版，可以使用 `github:earendil-works/pi/v1.0.0` 这样的标签。
 
-运行以下命令确认安装成功：
+运行以下命令检查实际安装的版本：
 
 ```bash
 pi --version
 ```
+
+如果指定了 `@1.6.0`，输出应为 `1.6.0`。
 
 ## 2. 启动 Pi \{#2-start-pi}
 
