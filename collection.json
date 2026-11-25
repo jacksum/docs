@@ -15,7 +15,8 @@
       "label": "Oh My Pi 中文文档",
       "description": "内置子代理和开发工具",
       "icon": "omp-icon.svg",
-      "license": "MIT"
+      "license": "MIT",
+      "licensePage": "translation"
     }
   ]
 }

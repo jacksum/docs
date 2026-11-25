@@ -11,13 +11,13 @@ const expected = manifest.pages.map((page) => page.target.slice(0, -3));
 const notice = (await readFile(resolve(root, 'LICENSE'), 'utf8')).replaceAll('\r\n', '\n').trimEnd();
 const readOutput = async (name) => (await readFile(resolve(dist, name), 'utf8')).replaceAll('\r\n', '\n');
 const built = (await readdir(dist)).filter((file) => file.endsWith('.html')).map((file) => file.slice(0, -5));
-const scopes = ['index', 'license', ...expected];
+const scopes = ['index', 'translation', ...expected];
 const failures = [];
 const unexpected = built.filter((name) => name !== '404' && !scopes.includes(name));
 if (unexpected.length) failures.push(`Unexpected pages: ${unexpected.join(', ')}`);
 const present = scopes.filter((name) => built.includes(name));
 const absent = scopes.filter((name) => !built.includes(name));
-if ((!partial && absent.length) || !present.includes('index') || !present.includes('license')) {
+if ((!partial && absent.length) || !present.includes('index') || !present.includes('translation')) {
   failures.push(`Missing pages: ${absent.join(', ')}`);
 }
 
@@ -44,12 +44,21 @@ let checkedImages = 0;
 
 for (const name of present) {
   const html = pageHtml.get(`${name}.html`);
-  if (name !== 'license' && !html.includes(notice)) failures.push(`${name}.html: missing full MIT notice`);
-  if (name === 'license') {
+  if (!html.includes(notice)) failures.push(`${name}.html: missing full MIT notice`);
+  if (name === 'translation') {
     const pre = /<pre\b[^>]*>([\s\S]*?)<\/pre>/.exec(html)?.[1] ?? '';
-    if (whitespace(decode(pre.replace(/<[^>]+>/g, ''))) !== whitespace(notice)) failures.push('license.html: visible text differs from the notice');
+    if (whitespace(decode(pre.replace(/<[^>]+>/g, ''))) !== whitespace(notice)) failures.push(`${name}.html: visible text differs from the notice`);
   }
-  if (!(await readOutput(`${name}.md`)).includes(notice)) failures.push(`${name}.md: missing full MIT notice`);
+  if (name === 'index' && !/<meta(?=[^>]*http-equiv="refresh")(?=[^>]*content="0;url=\.\/install\.html")[^>]*>/.test(html)) {
+    failures.push('index.html: missing redirect to the installation guide');
+  }
+  const markdown = await readOutput(`${name}.md`);
+  if (!markdown.includes(notice)) failures.push(`${name}.md: missing full MIT notice`);
+  if (html.includes('omp-translation-notice') || /^> \*\*(翻译说明|页面说明|许可说明)/m.test(markdown)) {
+    failures.push(`${name}: an obsolete per-page translation notice is still present`);
+  }
+  const nav = /<header\b[^>]*>([\s\S]*?)<\/header>/.exec(html)?.[1] ?? '';
+  if (!hrefs(nav).includes('https://omp.sh/docs')) failures.push(`${name}.html: missing official docs navigation`);
   if (name !== 'index' && !sidebarLinks.has(`${base}${name}.html`)) failures.push(`${name}.html: missing entry on the homepage`);
   for (const href of hrefs(html)) {
     const url = new URL(href, `${internal}${base}${name}.html`);
@@ -81,4 +90,4 @@ for (const name of present) {
 }
 if (!(await readOutput('llms-full.txt')).includes(notice)) failures.push('llms-full.txt: missing full MIT notice');
 if (failures.length) throw new Error([...new Set(failures)].join('\n'));
-console.log(JSON.stringify({ verifiedPages: present.length, translatedPages: present.length - 2, missing: absent, checkedLinks, checkedImages }, null, 2));
+console.log(JSON.stringify({ verifiedPages: present.length, translatedPages: present.filter((name) => expected.includes(name)).length, missing: absent, checkedLinks, checkedImages }, null, 2));

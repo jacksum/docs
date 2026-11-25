@@ -77,7 +77,7 @@ if (files.has('portal.css')) errors.push('The old portal stylesheet is still in 
 
 const entrances = projects.map(({ id }) => `${base}${id}/`);
 const counts = {};
-for (const { id, license } of projects) {
+for (const { id, license, licensePage = 'license' } of projects) {
   const prefix = `${id}/`;
   const home = pages.get(`${prefix}index.html`);
   if (!home) errors.push(`Missing collection entrance ${base}${prefix}`);
@@ -87,7 +87,7 @@ for (const { id, license } of projects) {
   const productPages = [...pages.keys()].filter((path) => path.startsWith(prefix) && path !== `${prefix}404.html`);
   counts[id] = productPages.length;
   if (license !== 'MIT') continue;
-  const licenseDoc = await readOutput(`${prefix}license.md`);
+  const licenseDoc = await readOutput(`${prefix}${licensePage}.md`);
   const notice = licenseDoc.replaceAll('\r\n', '\n').match(/```text\n(MIT License[\s\S]*?)\n```/)?.[1];
   if (!notice) errors.push(`${id}: full MIT notice missing from license export`);
   else for (const page of productPages) {

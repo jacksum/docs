@@ -1,9 +1,13 @@
 ---
-title: 上游 MIT 许可证
-description: Oh My Pi 上游版权和许可声明。
+title: 翻译说明
+description: Oh My Pi 中文译文的来源版本与上游许可证。
 ---
 
-# 上游 MIT 许可证
+# 翻译说明
+
+本站选译自 [Oh My Pi 官方仓库 v19.1.1](https://github.com/can1357/oh-my-pi/tree/31ffee513f27a01bba7d4dfbe12bae239cdc646a)。译文以该版本原文为准，与 [omp.sh 官网文档](https://omp.sh/docs) 可能不同。
+
+## 上游许可证
 
 ```text
 MIT License

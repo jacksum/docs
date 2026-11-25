@@ -23,8 +23,8 @@ export default defineConfig({
     routeGenerated(routes, isProd) {
       if (!isProd) return;
       exportedPages.clear();
-      for (const { routePath, pureRoutePath, relativePath } of routes) {
-        if (pureRoutePath === '/license' || !relativePath.startsWith(`${manifest.version}/`)) continue;
+      for (const { routePath, relativePath } of routes) {
+        if (!relativePath.startsWith(`${manifest.version}/`)) continue;
         const stem = `${routePath}${routePath.endsWith('/') ? 'index' : ''}`.replace(/^\/+/, '');
         exportedPages.add(stem);
       }

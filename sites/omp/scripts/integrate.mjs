@@ -186,15 +186,14 @@ for (const entry of available) {
   const frontmatter = `---\ntitle: ${JSON.stringify(entry.title)}\ndescription: ${JSON.stringify(`Oh My Pi ${manifest.version} 仓库文档：${entry.title}。`)}\n---\n\n`;
   await writeFile(resolve(output, entry.target), frontmatter + rendered.trimEnd() + '\n', 'utf8');
 }
-const license = (await readFile(resolve(root, 'LICENSE'), 'utf8')).trimEnd();
-await writeFile(resolve(output, 'license.md'), `---\ntitle: 上游 MIT 许可证\ndescription: Oh My Pi 上游版权和许可声明。\n---\n\n# 上游 MIT 许可证\n\n\`\`\`text\n${license}\n\`\`\`\n`);
-const sidebar = [{ type: 'file', name: 'index', label: '概览' }];
+const sidebar = [
+  { type: 'file', name: 'translation', label: '翻译说明' },
+];
 let group;
 for (const entry of available) {
   if (entry.group !== group) sidebar.push({ type: 'section-header', label: group = entry.group });
   sidebar.push({ type: 'file', name: entry.target.slice(0, -3), label: entry.title });
 }
-sidebar.push({ type: 'file', name: 'license', label: '上游 MIT 许可证' });
 await writeFile(resolve(output, '_meta.json'), JSON.stringify(sidebar, null, 2) + '\n');
 console.log(JSON.stringify({
   integrated: available.map((entry) => entry.target),

@@ -1,8 +1,8 @@
 [
   {
     "type": "file",
-    "name": "index",
-    "label": "概览"
+    "name": "translation",
+    "label": "翻译说明"
   },
   {
     "type": "section-header",
@@ -167,10 +167,5 @@
     "type": "file",
     "name": "environment-variables",
     "label": "环境变量参考"
-  },
-  {
-    "type": "file",
-    "name": "license",
-    "label": "上游 MIT 许可证"
   }
 ]
