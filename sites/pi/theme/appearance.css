@@ -55,6 +55,24 @@
   outline-offset: 2px;
 }
 
+@media (width <= 360px) {
+  .rp-nav {
+    --rp-nav-padding-x: 12px;
+  }
+
+  .rp-nav__right {
+    gap: 0;
+  }
+
+  .rp-nav__title__link {
+    font-size: 0.9375rem;
+  }
+
+  .rp-nav__title__logo {
+    min-width: 1.75rem;
+  }
+}
+
 .pi-theme-switch__moon,
 .rp-dark .pi-theme-switch__sun {
   display: none;

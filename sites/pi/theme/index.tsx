@@ -5,6 +5,7 @@ import {
   IconSun,
   Layout as DefaultLayout,
   NavHamburger as DefaultNavHamburger,
+  NavList,
   SearchButton as DefaultSearchButton,
   SvgWrapper,
   type LayoutProps,
@@ -78,11 +79,12 @@ export function NavHamburger(props: ComponentProps<typeof DefaultNavHamburger>) 
   return hasMenu ? <DefaultNavHamburger {...props} /> : null;
 }
 
-export function Layout({ beforeNavTitle, afterNavMenu, ...props }: LayoutProps) {
+export function Layout({ beforeNavTitle, afterNavMenu, afterRightNavItems, ...props }: LayoutProps) {
   return (
     <DefaultLayout
       {...props}
       beforeNavTitle={<>{beforeNavTitle}<DocumentSwitcher current="pi" /></>}
+      afterRightNavItems={<><NavList items={[{ text: '官方文档', link: 'https://docs.pi.dev/latest/' }]} />{afterRightNavItems}</>}
       afterNavMenu={<>{afterNavMenu}<AppearanceButton /></>}
     />
   );

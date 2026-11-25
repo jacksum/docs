@@ -8,7 +8,8 @@
       "label": "Pi 中文文档",
       "description": "可扩展的终端编码智能体",
       "icon": "pi-icon.svg",
-      "license": "MIT"
+      "license": "MIT",
+      "licensePage": "translation"
     },
     {
       "id": "omp",

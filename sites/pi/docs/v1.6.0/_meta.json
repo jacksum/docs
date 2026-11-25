@@ -1,4 +1,5 @@
 [
+  { "type": "file", "name": "translation", "label": "翻译说明" },
   { "type": "section-header", "label": "入门" },
   { "type": "file", "name": "index", "label": "概览" },
   "quickstart",

@@ -21,7 +21,7 @@ export default defineConfig({
         if (!isProd) return;
         markdownExports.clear();
         for (const { routePath, pureRoutePath, version } of routes) {
-          if (pureRoutePath === '/license') continue;
+          if (pureRoutePath === '/translation') continue;
           const file = `${routePath}${routePath.endsWith('/') ? 'index.md' : '.md'}`
             .replace(/^\/+/, '');
           const files = markdownExports.get(version) ?? [];
@@ -32,7 +32,7 @@ export default defineConfig({
       async afterBuild({ root = 'docs', outDir = 'doc_build', llms }, isProd) {
         if (!isProd || llms === false) return;
         for (const [version, files] of markdownExports) {
-          const license = await readFile(resolve(root, version, 'license.md'), 'utf8');
+          const license = await readFile(resolve(root, version, 'translation.md'), 'utf8');
           const notice = license.match(/^```text\r?\n(MIT License[\s\S]*?)\r?\n```\s*$/m)?.[1];
           if (!notice) throw new Error(`The upstream MIT notice is missing for ${version}.`);
 

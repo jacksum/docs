@@ -1,4 +1,13 @@
-# 许可证
+---
+title: 翻译说明
+description: Pi 中文译文的来源版本与上游许可证。
+---
+
+# 翻译说明
+
+本站译自 [Pi 官方仓库 v1.6.0 的文档](https://github.com/earendil-works/pi/tree/faac585884ae2c013a6b1400f3e9e77f10b34bac/packages/coding-agent/docs)。译文以该版本原文为准，与[官方最新文档](https://docs.pi.dev/latest/)可能不同。
+
+## 上游许可证
 
 ```text
 MIT License
