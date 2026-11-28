@@ -6,11 +6,20 @@ import manifest from './source-manifest.json';
 
 const { label: title, icon } = collection.projects.find(({ id }) => id === 'omp')!;
 const exportedPages = new Set<string>();
+const titles = new Map(manifest.pages.map(({ target, title }) => [target, title]));
+const sidebar = [
+  { text: '官方开发者地图', link: '/development' },
+  { text: '翻译说明', link: '/translation' },
+  ...manifest.navigation.flatMap((group) => [
+    { sectionHeaderText: group.title },
+    ...group.targets.map((target) => ({ text: titles.get(target) ?? target, link: `/${target.slice(0, -3)}` })),
+  ]),
+];
 
 export default defineConfig({
   root: 'docs',
   title,
-  description: 'Oh My Pi 仓库版使用指南与参考资料的简体中文选译。',
+  description: '按官方仓库文档地图组织的 Oh My Pi 简体中文文档。',
   lang: 'zh',
   logo: `/${icon}`,
   logoText: title,
@@ -18,6 +27,7 @@ export default defineConfig({
   base: `${collection.base}omp/`,
   multiVersion: { default: manifest.version, versions: [manifest.version] },
   route: { cleanUrls: false },
+  themeConfig: { sidebar: { '/': sidebar } },
   plugins: [{
     name: 'omp:retain-upstream-license',
     routeGenerated(routes, isProd) {

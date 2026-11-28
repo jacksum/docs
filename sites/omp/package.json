@@ -10,10 +10,12 @@
     "dev": "rspress dev --host 127.0.0.1",
     "build": "rspress build",
     "verify": "node scripts/verify-build.mjs",
+    "test:translation": "node --test scripts/frontmatter.test.mjs",
     "preview": "rspress preview --host 127.0.0.1"
   },
   "devDependencies": {
     "@rspress/core": "2.1.4",
+    "@rspress/shared": "2.1.4",
     "github-slugger": "2.0.0",
     "remark-gfm": "4.0.1",
     "remark-parse": "11.0.0",

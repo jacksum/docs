@@ -10,8 +10,17 @@ const manifest = JSON.parse(await readFile(resolve(root, 'source-manifest.json')
 const expected = manifest.pages.map((page) => page.target.slice(0, -3));
 const notice = (await readFile(resolve(root, 'LICENSE'), 'utf8')).replaceAll('\r\n', '\n').trimEnd();
 const readOutput = async (name) => (await readFile(resolve(dist, name), 'utf8')).replaceAll('\r\n', '\n');
-const built = (await readdir(dist)).filter((file) => file.endsWith('.html')).map((file) => file.slice(0, -5));
-const scopes = ['index', 'translation', ...expected];
+async function htmlFiles(directory, prefix = '') {
+  const files = [];
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const path = `${prefix}${entry.name}`;
+    if (entry.isDirectory()) files.push(...await htmlFiles(resolve(directory, entry.name), `${path}/`));
+    else if (entry.isFile() && path.endsWith('.html')) files.push(path.slice(0, -5));
+  }
+  return files;
+}
+const built = await htmlFiles(dist);
+const scopes = [...new Set([...(manifest.auxiliaryPages ?? ['index', 'translation']), ...expected])];
 const failures = [];
 const unexpected = built.filter((name) => name !== '404' && !scopes.includes(name));
 if (unexpected.length) failures.push(`Unexpected pages: ${unexpected.join(', ')}`);
@@ -49,8 +58,9 @@ for (const name of present) {
     const pre = /<pre\b[^>]*>([\s\S]*?)<\/pre>/.exec(html)?.[1] ?? '';
     if (whitespace(decode(pre.replace(/<[^>]+>/g, ''))) !== whitespace(notice)) failures.push(`${name}.html: visible text differs from the notice`);
   }
-  if (name === 'index' && !/<meta(?=[^>]*http-equiv="refresh")(?=[^>]*content="0;url=\.\/install\.html")[^>]*>/.test(html)) {
-    failures.push('index.html: missing redirect to the installation guide');
+  const entrance = manifest.entrance ?? './development.html';
+  if (name === 'index' && !html.includes(`content="0;url=${entrance}"`)) {
+    failures.push(`index.html: missing redirect to ${entrance}`);
   }
   const markdown = await readOutput(`${name}.md`);
   if (!markdown.includes(notice)) failures.push(`${name}.md: missing full MIT notice`);
@@ -58,7 +68,8 @@ for (const name of present) {
     failures.push(`${name}: an obsolete per-page translation notice is still present`);
   }
   const nav = /<header\b[^>]*>([\s\S]*?)<\/header>/.exec(html)?.[1] ?? '';
-  if (!hrefs(nav).includes('https://omp.sh/docs')) failures.push(`${name}.html: missing official docs navigation`);
+  const officialDocs = manifest.documentationUrl ?? `${manifest.upstream}/tree/${manifest.commit}/docs`;
+  if (!hrefs(nav).includes(officialDocs)) failures.push(`${name}.html: missing official repository documentation navigation`);
   if (name !== 'index' && !sidebarLinks.has(`${base}${name}.html`)) failures.push(`${name}.html: missing entry on the homepage`);
   for (const href of hrefs(html)) {
     const url = new URL(href, `${internal}${base}${name}.html`);

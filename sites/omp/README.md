@@ -1,7 +1,7 @@
 # Oh My Pi 中文文档
 
-本站选译 [Oh My Pi 仓库 v19.1.1](https://github.com/can1357/oh-my-pi/tree/31ffee513f27a01bba7d4dfbe12bae239cdc646a) 的使用指南和参考资料。它不是 [omp.sh 官网文档](https://omp.sh/docs) 的译本。[来源清单](./source-manifest.json)记录选译页面、上游路径和例外；[官网来源核查](./reference/official-site-inventory.md)单列官网快照。[原文的适用边界](./reference/source-notes.md)标注容易混淆的上游表述；[译文术语](./reference/terminology.md)统一常用词的译法。
+本项目以 [Oh My Pi 官方仓库固定提交](https://github.com/can1357/oh-my-pi/tree/c9730fdb620ce4599dd898691e3e3b56003bfcb5/docs) 的完整 docs/ 为翻译范围，并翻译[同提交的开发者地图](https://github.com/can1357/oh-my-pi/blob/c9730fdb620ce4599dd898691e3e3b56003bfcb5/packages/coding-agent/DEVELOPMENT.md)作为导航入口。分类、原文路径、译文路径和逐页状态统一维护在[来源清单](./source-manifest.json)。本站不是 omp.sh 官网的网页译本，也不将 main 快照标作产品发布版本。
 
-按照[总站说明](../../README.md)构建和预览，OMP 的入口是 `/docs/omp/`。上游版权和许可见 [LICENSE](./LICENSE)。
+按[总站说明](../../README.md)构建和预览，OMP 入口保持为 /docs/omp/。上游版权和许可见 [LICENSE](./LICENSE)。
 
-站点图标取自[同版本仓库中的 OMP 图标](https://github.com/can1357/oh-my-pi/blob/31ffee513f27a01bba7d4dfbe12bae239cdc646a/packages/collab-web/public/favicon.svg)，本站[原样保存 SVG](./docs/public/omp-icon.svg)。
+站点图标保留自[固定仓库文件](https://github.com/can1357/oh-my-pi/blob/c9730fdb620ce4599dd898691e3e3b56003bfcb5/packages/collab-web/public/favicon.svg)，本地文件为[OMP图标](./docs/public/omp-icon.svg)，适用该来源的 MIT 许可。
