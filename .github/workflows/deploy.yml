@@ -1,4 +1,4 @@
-name: Deploy Rspress to GitHub Pages
+name: Deploy offline notice to GitHub Pages
 
 on:
   push:
@@ -16,23 +16,14 @@ concurrency:
 
 jobs:
   build:
-    # The collection uses /docs/. Do not deploy it under the old repository name.
     if: github.repository == 'jacksum/docs'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
-        with:
-          node-version: '24'
-          cache: npm
       - uses: actions/configure-pages@v5
-      - run: npm ci
-      - run: npm run build
-      - run: npm run verify
-      - run: npm run verify --workspace ./sites/omp
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: doc_build
+          path: public
 
   deploy:
     needs: build
